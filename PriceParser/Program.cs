@@ -1,8 +1,8 @@
 ﻿using System.Web;
 using ClosedXML.Excel;
 using PriceParser.Configuration;
-using PriceParser.Sites.Parsers;
-using PriceParser.Sites.Parsers.Models;
+using PriceParser.Parsers;
+using PriceParser.Parsers.Models;
 
 namespace PriceParser;
 

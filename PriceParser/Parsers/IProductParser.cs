@@ -1,6 +1,6 @@
-using PriceParser.Sites.Parsers.Models;
+using PriceParser.Parsers.Models;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers;
 
 public interface IProductParser
 {

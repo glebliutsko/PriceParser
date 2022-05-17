@@ -1,6 +1,7 @@
+using PriceParser.Parsers.HtmlSearcher;
 using PriceParser.Utils;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers;
 
 internal class Ig73ProductParser : WebPageProductParserBase
 {

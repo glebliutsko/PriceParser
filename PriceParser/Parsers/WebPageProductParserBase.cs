@@ -1,9 +1,10 @@
 using AngleSharp;
+using PriceParser.Http;
 using PriceParser.Http.Url;
-using PriceParser.Sites.Http;
-using PriceParser.Sites.Parsers.Models;
+using PriceParser.Parsers.HtmlSearcher;
+using PriceParser.Parsers.Models;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers;
 
 public abstract class WebPageProductParserBase : IProductParser
 {

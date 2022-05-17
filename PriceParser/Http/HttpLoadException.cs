@@ -1,4 +1,4 @@
-namespace PriceParser.Sites.Http;
+namespace PriceParser.Http;
 
 public class HttpLoadException : Exception
 {

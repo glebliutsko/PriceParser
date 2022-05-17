@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace PriceParser.Sites.Http;
+namespace PriceParser.Http;
 
 public class HttpLoader
 {

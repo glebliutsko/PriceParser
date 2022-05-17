@@ -1,6 +1,6 @@
 using AngleSharp.Dom;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers.HtmlSearcher;
 
 public interface IHtmlSearcher
 {

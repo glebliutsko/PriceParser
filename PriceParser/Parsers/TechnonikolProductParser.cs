@@ -1,8 +1,9 @@
 using System.Net;
-using PriceParser.Sites.Parsers.Models;
+using PriceParser.Parsers.HtmlSearcher;
+using PriceParser.Parsers.Models;
 using PriceParser.Utils;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers;
 
 public class TechnonikolProductParser : WebPageProductParserBase
 {

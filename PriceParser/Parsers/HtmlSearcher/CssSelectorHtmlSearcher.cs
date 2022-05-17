@@ -1,7 +1,7 @@
 using AngleSharp.Dom;
 using PriceParser.Utils;
 
-namespace PriceParser.Sites.Parsers;
+namespace PriceParser.Parsers.HtmlSearcher;
 
 public class CssSelectorHtmlSearcher : IHtmlSearcher
 {
