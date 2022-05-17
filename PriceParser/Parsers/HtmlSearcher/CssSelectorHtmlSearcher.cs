@@ -1,4 +1,3 @@
-using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using PriceParser.Utils;
 
