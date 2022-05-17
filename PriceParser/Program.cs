@@ -1,4 +1,6 @@
-﻿using ClosedXML.Excel;
+﻿using System.Text.Encodings.Web;
+using System.Web;
+using ClosedXML.Excel;
 using PriceParser.Configuration;
 using PriceParser.Sites.Parsers;
 using PriceParser.Sites.Parsers.Models;
@@ -57,7 +59,8 @@ public class Program
         new Ig73ProductParser(),
         new Intergrup73ProductParser(),
         new MegastroyProductParser(new MegastroyShop(6, "ulyanovsk.megastroy.com", 10)),
-        new SarayProductParser()
+        new SarayProductParser(),
+        new TechnonikolProductParser(new TechnonikolShop("73000001000", HttpUtility.UrlEncode("Ульяновск"), 21))
     };
 
     private static IProductParser? GetParser(Uri url) =>
