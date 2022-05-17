@@ -59,7 +59,8 @@ public class Program
         new Intergrup73ProductParser(),
         new MegastroyProductParser(new MegastroyShop(6, "ulyanovsk.megastroy.com", 10)),
         new SarayProductParser(),
-        new TechnonikolProductParser(new TechnonikolShop("73000001000", HttpUtility.UrlEncode("Ульяновск"), 21))
+        new TechnonikolProductParser(new TechnonikolShop("73000001000", HttpUtility.UrlEncode("Ульяновск"), 21)),
+        new Incom73ProductParser()
     };
 
     private static IProductParser? GetParser(Uri url) =>
