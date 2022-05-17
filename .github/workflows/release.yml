@@ -21,12 +21,12 @@ jobs:
     - name: Publish Windows
       run: |
         mkdir windows
-        dotnet publish -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r win-x64 -o windows
+        dotnet publish --no-build -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r win-x64 -o windows
         cp windows/PriceParser.exe PriceParser-Windows.exe
     - name: Publish Linux
       run: |
         mkdir linux
-        dotnet publish -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r linux-x64 -o linux
+        dotnet publish --no-build -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r linux-x64 -o linux
         cp linux/PriceParser PriceParser-Linux
     - name: Create Release
       uses: softprops/action-gh-release@v1
