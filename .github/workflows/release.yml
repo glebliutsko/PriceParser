@@ -1,0 +1,37 @@
+name: .NET
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: Publish Windows
+      run: |
+        mkdir windows
+        dotnet publish -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r win-x64 -o windows
+        cp windows/PriceParser.exe PriceParser-Windows.exe
+    - name: Publish Linux
+      run: |
+        mkdir linux
+        dotnet publish -c Release -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishSingleFile=true --self-contained -f net6.0 -r linux-x64 -o linux
+        cp linux/PriceParser PriceParser-Linux
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Version ${{ github.ref }}
+        files: |
+          PriceParser-Windows.exe
+          PriceParser-Linux
