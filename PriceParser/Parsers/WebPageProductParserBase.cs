@@ -1,4 +1,5 @@
 using AngleSharp;
+using AngleSharp.Html.Parser;
 using PriceParser.Http;
 using PriceParser.Http.Url;
 using PriceParser.Parsers.HtmlSearcher;
@@ -31,8 +32,8 @@ public abstract class WebPageProductParserBase : IProductParser
 
         var content = await Loader.Load(url);
 
-        var context = BrowsingContext.New(AngleSharp.Configuration.Default);
-        var document = await context.OpenAsync(req => req.Content(content));
+        var parser = new HtmlParser();
+        var document = await parser.ParseDocumentAsync(content);
 
         var name = _searcher.FindName(document);
         var price = _searcher.FindPrice(document);

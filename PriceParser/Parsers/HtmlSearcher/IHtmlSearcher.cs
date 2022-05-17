@@ -1,9 +1,10 @@
 using AngleSharp.Dom;
+using AngleSharp.Html.Dom;
 
 namespace PriceParser.Parsers.HtmlSearcher;
 
 public interface IHtmlSearcher
 {
-    string? FindName(IDocument document);
-    decimal? FindPrice(IDocument document);
+    string? FindName(IHtmlDocument document);
+    decimal? FindPrice(IHtmlDocument document);
 }

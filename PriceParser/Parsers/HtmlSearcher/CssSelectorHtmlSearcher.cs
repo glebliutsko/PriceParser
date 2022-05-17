@@ -1,4 +1,5 @@
 using AngleSharp.Dom;
+using AngleSharp.Html.Dom;
 using PriceParser.Utils;
 
 namespace PriceParser.Parsers.HtmlSearcher;
@@ -14,10 +15,10 @@ public class CssSelectorHtmlSearcher : IHtmlSearcher
         _priceSelector = priceSelector;
     }
 
-    public string? FindName(IDocument document) =>
+    public string? FindName(IHtmlDocument document) =>
         document.QuerySelector(_nameSelector)?.GetTextNode()?.Text.Trim();
 
-    public decimal? FindPrice(IDocument document)
+    public decimal? FindPrice(IHtmlDocument document)
     {
         var priceString = document.QuerySelector(_priceSelector)?.GetTextNode()?.Text.Trim();
         return decimal.TryParse(priceString, out var price) ? price : null;
