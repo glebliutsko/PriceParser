@@ -18,10 +18,8 @@ public abstract class WebPageProductParserBase : IProductParser
 
     protected HttpLoader Loader { get; } = new();
 
-    public virtual Task Initialize()
-    {
-        return Task.CompletedTask;
-    }
+    public virtual Task Initialize() =>
+        Task.CompletedTask;
 
     public abstract bool IsSupportUrl(Uri url);
 

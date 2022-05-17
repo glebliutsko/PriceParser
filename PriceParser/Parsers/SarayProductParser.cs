@@ -8,8 +8,6 @@ internal class SarayProductParser : WebPageProductParserBase
     {
     }
 
-    public override bool IsSupportUrl(Uri url)
-    {
-        return DomainInaccurateComparator.DefaultInstance.Compare("saray.ru", url.IdnHost);
-    }
+    public override bool IsSupportUrl(Uri url) =>
+        DomainInaccurateComparator.DefaultInstance.Compare("saray.ru", url.IdnHost);
 }

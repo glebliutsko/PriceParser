@@ -8,8 +8,6 @@ public class Intergrup73ProductParser : WebPageProductParserBase
     {
     }
 
-    public override bool IsSupportUrl(Uri url)
-    {
-        return DomainInaccurateComparator.DefaultInstance.Compare("intergrup73.ru", url.IdnHost);
-    }
+    public override bool IsSupportUrl(Uri url) =>
+        DomainInaccurateComparator.DefaultInstance.Compare("intergrup73.ru", url.IdnHost);
 }

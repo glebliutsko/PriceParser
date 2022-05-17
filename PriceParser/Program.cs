@@ -1,5 +1,4 @@
-﻿using System.Text.Encodings.Web;
-using System.Web;
+﻿using System.Web;
 using ClosedXML.Excel;
 using PriceParser.Configuration;
 using PriceParser.Sites.Parsers;
@@ -77,34 +76,36 @@ public class Program
         }
 
         foreach (var parser in _parsers)
-        {
             parser.Initialize().Wait();
-        }
 
         var products = ProductConfiguration.FromDirectory(directoryConfiguration);
         var result = new ExcelOutput();
         foreach (var product in products)
-        foreach (var url in product.Urls)
-            try
+        {
+            foreach (var url in product.Urls)
             {
-                var parser = GetParser(url);
-                if (parser == null)
+                try
                 {
-                    Console.WriteLine("Not support url");
-                    continue;
-                }
+                    var parser = GetParser(url);
+                    if (parser == null)
+                    {
+                        Console.WriteLine("Not support url");
+                        continue;
+                    }
 
-                var productData = parser.ParseAsync(url).Result;
-                result.AddProduct(new OutputProduct {Name = product.Name, Product = productData, Url = url});
-                Console.WriteLine(url);
+                    var productData = parser.ParseAsync(url).Result;
+                    result.AddProduct(new OutputProduct {Name = product.Name, Product = productData, Url = url});
+                    Console.WriteLine(url);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("!!!!!!!!Ошибка!!!!!!!");
+                    Console.WriteLine(url);
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("!!!!!!!!Ошибка!!!!!!!");
-                Console.WriteLine(url);
-                Console.WriteLine(e);
-                throw;
-            }
+        }
 
         result.Save();
     }

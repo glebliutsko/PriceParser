@@ -21,8 +21,6 @@ public class TechnonikolProductParser : WebPageProductParserBase
         return Task.CompletedTask;
     }
 
-    public override bool IsSupportUrl(Uri url)
-    {
-        return DomainInaccurateComparator.DefaultInstance.Compare("shop.tn.ru", url.IdnHost);
-    }
+    public override bool IsSupportUrl(Uri url) =>
+        DomainInaccurateComparator.DefaultInstance.Compare("shop.tn.ru", url.IdnHost);
 }
