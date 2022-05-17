@@ -6,12 +6,7 @@ using PriceParser.Parsers.Models;
 
 namespace PriceParser;
 
-internal class OutputProduct
-{
-    public string Name { get; set; }
-    public Uri Url { get; set; }
-    public Product Product { get; set; }
-}
+internal record OutputProduct(string Name, Uri Url, Product Product);
 
 internal class ExcelOutput
 {
@@ -95,7 +90,7 @@ public class Program
                     }
 
                     var productData = parser.ParseAsync(url).Result;
-                    result.AddProduct(new OutputProduct {Name = product.Name, Product = productData, Url = url});
+                    result.AddProduct(new OutputProduct(product.Name, url, productData));
                     Console.WriteLine(url);
                 }
                 catch (Exception e)

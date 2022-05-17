@@ -2,6 +2,12 @@ namespace PriceParser.Configuration;
 
 public class ProductConfiguration
 {
+    public ProductConfiguration(string name, Uri[] urls)
+    {
+        Name = name;
+        Urls = urls;
+    }
+
     public string Name { get; init; }
     public Uri[] Urls { get; init; }
 
@@ -23,11 +29,7 @@ public class ProductConfiguration
         contentLines.Remove(string.Empty);
         var urls = contentLines.Select(x => new Uri(x)).ToArray();
 
-        return new ProductConfiguration
-        {
-            Name = name,
-            Urls = urls
-        };
+        return new ProductConfiguration(name, urls);
     }
 
     public static List<ProductConfiguration> FromDirectory(DirectoryInfo directory)
