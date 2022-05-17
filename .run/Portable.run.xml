@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Portable" type="DotNetFolderPublish" factoryName="Publish to folder">
-    <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/PriceParser/bin/Release/net6.0-publish/portable" target_framework="net6.0" uuid_high="-4297780550960656789" uuid_low="-8582804432644862471" />
-    <method v="2" />
-  </configuration>
-</component>

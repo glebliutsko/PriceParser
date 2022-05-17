@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="LinuxX64" type="DotNetFolderPublish" factoryName="Publish to folder">
-    <riderPublish configuration="Release" delete_existing_files="true" include_native_libs_for_self_extract="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="linux-x64" self_contained="true" target_folder="$PROJECT_DIR$/PriceParser/bin/Release/net6.0-publish/linux-x64" target_framework="net6.0" trim_unused_assemblies="true" uuid_high="-4297780550960656789" uuid_low="-8582804432644862471" />
-    <method v="2" />
-  </configuration>
-</component>
