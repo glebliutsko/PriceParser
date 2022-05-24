@@ -29,8 +29,16 @@ internal class ExcelOutput
         worksheet.Cell("E1").Value = "Цена";
 
         var row = 2;
+        var previousName = string.Empty;
+        var isGrey = true;
         foreach (var product in _products)
         {
+            if (product.Name != previousName)
+                isGrey = !isGrey;
+
+            if (isGrey)
+                worksheet.Row(row).Style.Fill.BackgroundColor = XLColor.FromHtml("#CFCFCF");
+            
             worksheet.Cell($"A{row}").Value = product.Name;
             worksheet.Cell($"B{row}").Value = product.Url.IdnHost;
             worksheet.Cell($"C{row}").Value = product.Url;
@@ -38,6 +46,8 @@ internal class ExcelOutput
             worksheet.Cell($"E{row}").Value = product.Product.Price;
 
             row++;
+
+            previousName = product.Name;
         }
 
         workbook.SaveAs(DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss") + ".xlsx");
