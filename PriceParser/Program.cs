@@ -42,8 +42,18 @@ internal class ExcelOutput
             worksheet.Cell($"A{row}").Value = product.Name;
             worksheet.Cell($"B{row}").Value = product.Url.IdnHost;
             worksheet.Cell($"C{row}").Value = product.Url;
-            worksheet.Cell($"D{row}").Value = product.Product.Name;
-            worksheet.Cell($"E{row}").Value = product.Product.Price;
+            
+            if (product.Product == null)
+            {
+                worksheet.Row(row).Style.Fill.BackgroundColor = XLColor.Red;
+                worksheet.Cell($"D{row}").Value = "Error";
+                worksheet.Cell($"E{row}").Value = "Error";
+            }
+            else
+            {
+                worksheet.Cell($"D{row}").Value = product.Product.Name;
+                worksheet.Cell($"E{row}").Value = product.Product.Price;
+            }
 
             row++;
 
@@ -109,7 +119,8 @@ public class Program
                     Console.WriteLine("!!!!!!!!Ошибка!!!!!!!");
                     Console.WriteLine(url);
                     Console.WriteLine(e);
-                    throw;
+                    
+                    result.AddProduct(new OutputProduct(product.Name, url, null));
                 }
             }
         }
