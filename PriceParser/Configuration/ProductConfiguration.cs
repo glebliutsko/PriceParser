@@ -21,7 +21,9 @@ public class ProductConfiguration
         using (var reader = file.OpenText())
         {
             var content = reader.ReadToEnd();
-            contentLines = content.Split(new[] {"\n", "\r\n"}, StringSplitOptions.None).ToList();
+            contentLines = content.Split(new[] {"\n", "\r\n"}, StringSplitOptions.None)
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .ToList();
         }
 
         var name = contentLines[0];
