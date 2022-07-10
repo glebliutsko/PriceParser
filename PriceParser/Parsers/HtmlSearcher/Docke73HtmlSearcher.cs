@@ -14,7 +14,7 @@ public class Docke73HtmlSearcher : IHtmlSearcher
         var priceElement = document.QuerySelector(".price-tovar-sw");
         if (priceElement == null)
             return null;
-        
+
         var priceString = priceElement.ChildNodes.OfType<IText>().LastOrDefault()?.Text;
         if (string.IsNullOrEmpty(priceString))
             return null;
@@ -28,7 +28,7 @@ public class Docke73HtmlSearcher : IHtmlSearcher
         {
             return null;
         }
-        
+
         return decimal.TryParse(priceString, out var price) ? price : null;
     }
 }

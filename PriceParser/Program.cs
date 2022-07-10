@@ -38,11 +38,11 @@ internal class ExcelOutput
 
             if (isGrey)
                 worksheet.Row(row).Style.Fill.BackgroundColor = XLColor.FromHtml("#CFCFCF");
-            
+
             worksheet.Cell($"A{row}").Value = product.Name;
             worksheet.Cell($"B{row}").Value = product.Url.IdnHost;
             worksheet.Cell($"C{row}").Value = product.Url;
-            
+
             if (product.Product == null)
             {
                 worksheet.Row(row).Style.Fill.BackgroundColor = XLColor.Red;
@@ -120,7 +120,7 @@ public class Program
                     Console.WriteLine("!!!!!!!!Ошибка!!!!!!!");
                     Console.WriteLine(url);
                     Console.WriteLine(e);
-                    
+
                     result.AddProduct(new OutputProduct(product.Name, url, null));
                 }
             }

@@ -8,7 +8,7 @@ public class Incom73UrlCleaner : IUrlCleaner
     {
         var query = HttpUtility.ParseQueryString(url.Query);
         query.Remove("search");
-        
+
         var uriBuilder = new UriBuilder(url);
         uriBuilder.Query = query.ToString();
         return uriBuilder.Uri;
