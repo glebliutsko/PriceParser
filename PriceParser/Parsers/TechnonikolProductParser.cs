@@ -1,4 +1,5 @@
 using System.Net;
+using PriceParser.DomainComparator;
 using PriceParser.Parsers.HtmlSearcher;
 using PriceParser.Parsers.Models;
 using PriceParser.Utils;
@@ -23,5 +24,5 @@ public class TechnonikolProductParser : WebPageProductParserBase
     }
 
     public override bool IsSupportUrl(Uri url) =>
-        DomainInaccurateComparator.DefaultInstance.Compare("shop.tn.ru", url.IdnHost);
+        InaccurateDomainComparator.DefaultInstance.Compare("shop.tn.ru", url.IdnHost);
 }

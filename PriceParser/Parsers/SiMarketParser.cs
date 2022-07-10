@@ -1,3 +1,4 @@
+using PriceParser.DomainComparator;
 using PriceParser.Parsers.HtmlSearcher;
 using PriceParser.Utils;
 
@@ -10,5 +11,5 @@ public class SiMarketParser : WebPageProductParserBase
     }
 
     public override bool IsSupportUrl(Uri url) =>
-        DomainInaccurateComparator.DefaultInstance.Compare("si-market.ru", url.IdnHost);
+        InaccurateDomainComparator.DefaultInstance.Compare("si-market.ru", url.IdnHost);
 }

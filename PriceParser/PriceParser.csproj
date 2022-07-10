@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AngleSharp" Version="0.16.1"/>
-        <PackageReference Include="ClosedXml" Version="0.95.4"/>
+        <PackageReference Include="AngleSharp" Version="0.16.1" />
+        <PackageReference Include="ClosedXml" Version="0.95.4" />
     </ItemGroup>
 
 </Project>

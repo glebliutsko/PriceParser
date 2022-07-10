@@ -1,4 +1,5 @@
 using System.Net;
+using PriceParser.DomainComparator;
 using PriceParser.Http.Url;
 using PriceParser.Parsers.HtmlSearcher;
 using PriceParser.Parsers.Models;
@@ -27,7 +28,7 @@ public class MegastroyProductParser : WebPageProductParserBase
 
     public override bool IsSupportUrl(Uri url)
     {
-        return new DomainInaccurateComparator(MegastroyUrlCleaner.CitySubdomains.Union(new[] {"www", "m"}).ToArray())
+        return new InaccurateDomainComparator(MegastroyUrlCleaner.CitySubdomains.Union(new[] {"www", "m"}).ToArray())
             .Compare("megastroy.com", url.IdnHost);
     }
 }

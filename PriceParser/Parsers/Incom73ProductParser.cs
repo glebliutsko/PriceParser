@@ -1,3 +1,4 @@
+using PriceParser.DomainComparator;
 using PriceParser.Http.Url;
 using PriceParser.Parsers.HtmlSearcher;
 using PriceParser.Utils;
@@ -12,5 +13,5 @@ public class Incom73ProductParser : WebPageProductParserBase
     }
 
     public override bool IsSupportUrl(Uri url) =>
-        DomainInaccurateComparator.DefaultInstance.Compare("incom73.ru", url.IdnHost);
+        InaccurateDomainComparator.DefaultInstance.Compare("incom73.ru", url.IdnHost);
 }
