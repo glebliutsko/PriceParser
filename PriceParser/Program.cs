@@ -76,7 +76,8 @@ public class Program
         new SarayProductParser(),
         new TechnonikolProductParser(new TechnonikolShop("73000001000", HttpUtility.UrlEncode("Ульяновск"), 21)),
         new Incom73ProductParser(),
-        new SiMarketParser()
+        new SiMarketParser(),
+        new Docke73ProductParser()
     };
 
     private static IProductParser? GetParser(Uri url) =>
