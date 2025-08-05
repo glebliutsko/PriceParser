@@ -6,7 +6,7 @@ namespace PriceParser.Parsers;
 
 internal class SarayProductParser : WebPageProductParserBase
 {
-    public SarayProductParser() : base(new CssSelectorHtmlSearcher("h1", "span.price_value"))
+    public SarayProductParser() : base(new CssSelectorHtmlSearcher("h1", "span.new-price-value"))
     {
     }
 
